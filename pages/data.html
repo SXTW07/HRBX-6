@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRBX6</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Round">
+    <link rel="stylesheet" href="./../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilo adicional para los gráficos */
+        canvas {
+            width: 8cm !important; /* Cambiar el ancho a 8 cm */
+            height: 8cm !important; /* Cambiar la altura a 8 cm */
+        }
+        /* Estilos para el contenedor de los gráficos */
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Distribuir espacio entre los gráficos */
+            margin: 20px; /* Espaciado alrededor del contenedor */
+        }
+        .chart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar los gráficos y leyendas */
+            margin: 50px; /* Espaciado entre los gráficos */
+            margin-bottom: 5cm; /* Espaciado adicional de 5 cm entre los gráficos */
+        }
+        /* Estilo para el título */
+        .title {
+            text-align: center; /* Centrar el texto */
+            margin: 20px 0; /* Margen superior e inferior */
+            font-weight: 600; /* Hacer el texto más grueso */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <ul class="navbar-items flexbox-col">
+            <li class="navbar-logo flexbox-left">
+                <a class="navbar-item-inner flexbox" href="../index.html"> <!-- Enlace a ../index.html -->
+                    <img src="./../Images/hidrobotx6.png" alt="Logo" width="50px" height="auto">
+                    <span class="logo-text">HRBX-6</span>
+                </a>
+            </li>
+            <li class="navbar-item flexbox-left">
+                <a class="navbar-item-inner flexbox-left" href="../index.html"> <!-- Enlace a ../index.html -->
+                    <div class="navbar-item-inner-icon-wrapper flexbox">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
+                    <span class="link-text">Inicio</span>
+                </a>
+            </li>
+            <li class="navbar-item flexbox-left">
+                <a class="navbar-item-inner flexbox-left" href="data.html"> <!-- Enlace a data.html -->
+                    <div class="navbar-item-inner-icon-wrapper flexbox">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </div>
+                    <span class="link-text">Datos</span>
+                </a>
+            </li>
+            <li class="navbar-item flexbox-left">
+                <a class="navbar-item-inner flexbox-left" href="team.html"> <!-- Enlace a ../index.html -->
+                    <div class="navbar-item-inner-icon-wrapper flexbox">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                    <span class="link-text">Equipo</span>
+                </a>
+            </li>
+            <li class="navbar-item flexbox-left">
+                <a class="navbar-item-inner flexbox-left" href="../index.html"> <!-- Enlace a ../index.html -->
+                    <div class="navbar-item-inner-icon-wrapper flexbox">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                    </div>
+                    <span class="link-text">Ayuda</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main" class="flexbox-col">
+        <!-- Contenedor para los gráficos -->
+        <div class="chart-container">
+            <!-- Gráfico de Temperatura -->
+            <div class="chart-item">
+                <h3>Gráfico de Temperatura</h3>
+                <canvas id="temperatureChart"></canvas>
+                <div id="temperature-legend" style="margin-top: 10px;">
+                    <span style="color: #FF6384;">●</span> Temperatura (°C)
+                </div>
+            </div>
+
+            <!-- Gráfico de Humedad -->
+            <div class="chart-item">
+                <h3>Gráfico de Humedad</h3>
+                <canvas id="humidityChart"></canvas>
+                <div id="humidity-legend" style="margin-top: 10px;">
+                    <span style="color: #36A2EB;">●</span> Humedad (%)
+                </div>
+            </div>
+
+            <!-- Gráfico de Luz -->
+            <div class="chart-item">
+                <h3>Gráfico de Luz</h3>
+                <canvas id="lightChart"></canvas>
+                <div id="light-legend" style="margin-top: 10px;">
+                    <span style="color: #FFCE56;">●</span> Luz
+                </div>
+            </div>
+
+            <!-- Gráfico de CO2 -->
+            <div class="chart-item">
+                <h3>Gráfico de CO2</h3>
+                <canvas id="co2Chart"></canvas>
+                <div id="co2-legend" style="margin-top: 10px;">
+                    <span style="color: #4BC0C0;">●</span> CO2 (ppm)
+                </div>
+            </div>
+
+            <!-- Gráfico de Presión -->
+            <div class="chart-item">
+                <h3>Gráfico de Presión</h3>
+                <canvas id="pressureChart"></canvas>
+                <div id="pressure-legend" style="margin-top: 10px;">
+                    <span style="color: #9966FF;">●</span> Presión (hPa)
+                </div>
+            </div>
+
+            <!-- Gráfico de pH -->
+            <div class="chart-item">
+                <h3>Gráfico de pH</h3>
+                <canvas id="phChart"></canvas>
+                <div id="ph-legend" style="margin-top: 10px;">
+                    <span style="color: #FF9F40;">●</span> pH
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Cargar datos del archivo JSON
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Gráfico de temperatura
+                const tempCtx = document.getElementById('temperatureChart').getContext('2d');
+                const temperatureChart = new Chart(tempCtx, {
+                    type: 'line',
+                    data: {
+                        labels: data.temperature.labels,
+                        datasets: [{
+                            label: 'Temperatura (°C)',
+                            data: data.temperature.data,
+                            backgroundColor: '#FF6384',
+                            borderColor: '#FF6384',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Temperatura (°C)'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de humedad
+                const humCtx = document.getElementById('humidityChart').getContext('2d');
+                const humidityChart = new Chart(humCtx, {
+                    type: 'line',
+                    data: {
+                        labels: data.humidity.labels,
+                        datasets: [{
+                            label: 'Humedad (%)',
+                            data: data.humidity.data,
+                            backgroundColor: '#36A2EB',
+                            borderColor: '#36A2EB',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Humedad (%)'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de luz
+                const lightCtx = document.getElementById('lightChart').getContext('2d');
+                const lightChart = new Chart(lightCtx, {
+                    type: 'line',
+                    data: {
+                        labels: data.light.labels,
+                        datasets: [{
+                            label: 'Luz',
+                            data: data.light.data,
+                            backgroundColor: '#FFCE56',
+                            borderColor: '#FFCE56',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Luz'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de CO2
+                const co2Ctx = document.getElementById('co2Chart').getContext('2d');
+                const co2Chart = new Chart(co2Ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.co2.labels,
+                        datasets: [{
+                            label: 'Dióxido de carbono (CO2)',
+                            data: data.co2.data,
+                            backgroundColor: '#4BC0C0',
+                            borderColor: '#4BC0C0',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Dióxido de carbono (CO2)'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de presión
+                const pressureCtx = document.getElementById('pressureChart').getContext('2d');
+                const pressureChart = new Chart(pressureCtx, {
+                    type: 'line',
+                    data: {
+                        labels: data.pressure.labels,
+                        datasets: [{
+                            label: 'Presión Atmosférica',
+                            data: data.pressure.data,
+                            backgroundColor: '#9966FF',
+                            borderColor: '#9966FF',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Presión Atmosférica'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de pH
+                const phCtx = document.getElementById('phChart').getContext('2d');
+                const phChart = new Chart(phCtx, {
+                    type: 'line',
+                    data: {
+                        labels: data.ph.labels,
+                        datasets: [{
+                            label: 'pH',
+                            data: data.ph.data,
+                            backgroundColor: '#FF9F40',
+                            borderColor: '#FF9F40',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'pH'
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar los datos:', error));
+    </script>
+</body>
+</html>
