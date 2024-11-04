@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HRBX6</title>
+  <link rel="icon" href="./Images/hidrobotx6.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Round">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <ul class="navbar-items flexbox-col">
+      
+      <!-- Logo con texto -->
+      <li class="navbar-logo flexbox-left">
+        <a class="navbar-item-inner flexbox" href="index.html"> <!-- Enlace a index.html -->
+          <img src="./Images/hidrobotx6.png" alt="Logo" width="50px" height="auto">
+          <span class="logo-text">HRBX6</span>
+        </a>
+      </li>      
+      <!-- Menú -->
+      <!-- Inicio -->
+      <li class="navbar-item flexbox-left">
+        <a class="navbar-item-inner flexbox-left" href="index.html"> <!-- Enlace a index.html -->
+          <div class="navbar-item-inner-icon-wrapper flexbox">
+            <ion-icon name="home-outline"></ion-icon>
+          </div>
+          <span class="link-text">Inicio</span>
+        </a>
+      </li>
+      
+      <!-- Datos -->
+      <li class="navbar-item flexbox-left">
+        <a class="navbar-item-inner flexbox-left" href="pages/data.html"> <!-- Enlace a data.html -->
+          <div class="navbar-item-inner-icon-wrapper flexbox">
+            <ion-icon name="newspaper-outline"></ion-icon>
+          </div>
+          <span class="link-text">Datos</span>
+        </a>
+      </li>
+      
+      <!-- Equipo -->
+      <li class="navbar-item flexbox-left">
+        <a class="navbar-item-inner flexbox-left" href="/pages/team.html"> <!-- Enlace a index.html -->
+          <div class="navbar-item-inner-icon-wrapper flexbox">
+            <ion-icon name="people-outline"></ion-icon>
+          </div>
+          <span class="link-text">Equipo</span>
+        </a>
+      </li>
+      
+      <!-- Ayuda -->
+      <li class="navbar-item flexbox-left">
+        <a class="navbar-item-inner flexbox-left" href="index.html"> <!-- Enlace a index.html -->
+          <div class="navbar-item-inner-icon-wrapper flexbox">
+            <ion-icon name="help-circle-outline"></ion-icon>
+          </div>
+          <span class="link-text">Ayuda</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main" class="flexbox-col">
+    <h2>¡Bienvenido a HRBX6!</h2>
+    <p>Buscamos ofrecer una herramienta capaz de detectar y analizar una amplia variedad de parámetros. Esto permitirá no solo la identificación de irregularidades en tiempo real, sino también una comprensión profunda de las amenazas potenciales, brindando alertas oportunas para facilitar el tratamiento y la preparación adecuados.</p>
+    <br>
+    <p>Planeamos que el robot pueda obtener datos sobre la mayor cantidad de componentes del agua o ambiente en el que opere, así poder ver cualquier irregularidad y poder entenderla y preeverla.</p>
+  </main>
+
+  <div class="slider-container">
+    <button class="nav-button left" id="prevSlide">&#10094;</button>
+      <div class="slider">
+          <div class="slide active">
+              <img src="/Images/1.png" alt="Imagen 1">
+          </div>
+          <div class="slide">
+              <img src="/Images/2.png" alt="Imagen 2">
+          </div>
+          <div class="slide">
+              <img src="/Images/3.png" alt="Imagen 3">
+          </div>
+          <div class="slide">
+              <img src="/Images/4.png" alt="Imagen 4">
+          </div>
+      </div>
+    <button class="nav-button right" id="nextSlide">&#10095;</button>
+  </div>
+
+  <!-- Video Section -->
+  <div class="video-container">
+    <h3>Sumérgete en la experiencia HRBX6</h3>
+    <video controls width="600">
+      <source src="./Videos/VIDEO.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
